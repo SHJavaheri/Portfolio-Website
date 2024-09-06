@@ -74,7 +74,7 @@ section div a:hover {
     position: relative;
     opacity: 100%;
     height: 100vh;
-    background: url('/images/coverpage-background.png') no-repeat center/cover;
+    background: url('images/coverpage-background.png') no-repeat center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
