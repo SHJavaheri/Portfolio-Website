@@ -194,6 +194,7 @@ section div a:hover {
 
 #description h2 {
     font-size: 3em;
+    text-align: center;
     margin-bottom: 20px;
 }
 
@@ -240,26 +241,105 @@ section div a:hover {
     border-radius: 100px;
     text-align: right;
     transition: background-color 0.3s ease;
-    margin-bottom: 100px;
+    margin-bottom: 180px;
 }
 
 .dropdown-btn:hover {
     background-color: #ca84d6;
 }
 
+
 .dropdown-content {
-    display: none;
-    background-color: rgba(255, 255, 255, 0.9);
-    margin-top: -100px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.185);
+    margin-top: -180px;
     padding-left: 10px;
     padding-right: 10px;
     position: absolute;
     top: 100%;
     right: 0;
-    width: 580px;
+    width: 610px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     border-radius: 10px;
+    /* Animation Portion */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-out, max-height 0.3s ease-out; /* Enables a smooth transition */
+    z-index: 1;
 }
+
+
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Position it behind the content */
+}
+
+
+
+#skills-dropdown::before {
+    background-image: url('images/skill_set_background.png');
+    background-size: 120%;
+    background-position-y: 1050px;
+    background-position-x: -120px;
+    opacity: 75%;
+    filter: blur(2px);
+}
+
+
+#education-dropdown::before {
+    background-image: url('images/education_background.png');
+    opacity: 50%;
+    filter: blur(2px);
+}
+
+
+#courses-dropdown::before {
+    background-image: url('images/courses_background.png');
+    opacity: 50%;
+    filter: blur(2px);
+}
+
+
+/* When dropdown is active, show content */
+.dropdown.active .dropdown-content {
+    max-height: 500px; /* Adjust this based on your content's height */
+    opacity: 1; /* Fully visible */
+}
+
+
+
+
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+}
+
+
+.dropdown-content li {
+    padding: 8px 0;
+    font-size: 1.1em;
+    color: #333;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.dropdown-content li:last-child {
+    border-bottom: none; /* Removes border from the last list item */
+}
+
 
 .dropdown.show .dropdown-content {
     display: block;

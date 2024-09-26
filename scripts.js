@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.dropdown-btn').forEach(button => {
         button.addEventListener('click', function () {
             const dropdown = this.parentElement;
-            dropdown.classList.toggle('show');
+            dropdown.classList.toggle('active');
         });
     });
     
