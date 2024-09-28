@@ -10,6 +10,10 @@ header {
 }
 
 
+
+
+
+/*The tabs at the top of the screen*/
 nav ul {
     list-style: none;
     margin: 0;
@@ -61,15 +65,22 @@ nav ul li a:hover::after {
 
 
 
+
+
+
+/*The Explore My Work Button*/
 section div a:hover {
     text-decoration: none;
     color: red;
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 
+
+
+/*Main Page*/
 .cover-page {
     position: relative;
     opacity: 100%;
@@ -83,13 +94,11 @@ section div a:hover {
     color: white;
 }
 
-
 .cover-content {
     max-width: 100%;
     display: flex;
     color: white;
 }
-
 
 .profile-pic {
     border-radius: 50%;
@@ -98,8 +107,6 @@ section div a:hover {
     object-fit: cover;
     margin-bottom: 20px;
 }
-
-
 
 .cover-content h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -112,7 +119,6 @@ section div a:hover {
     margin: 0;
 }
 
-
 .cover-content p {
     font-size: 1.5em;
     text-shadow:
@@ -122,7 +128,6 @@ section div a:hover {
       -1px 1px 0 #000;
     margin: 20px 0;
 }
-
 
 .btn {
     display: inline-block;
@@ -158,6 +163,7 @@ section div a:hover {
 
 
 
+/*Self Description (About Me) Page*/
 #description {
     padding: 60px 20px;
     background: linear-gradient(to right, #5372ac, #e5dcbd, #5372ac);
@@ -214,6 +220,8 @@ section div a:hover {
 
 
 
+
+/*Buttons of the description page*/
 .button-section {
     width: 30%; 
     display: flex;
@@ -223,12 +231,9 @@ section div a:hover {
     margin-left: auto;
 }
 
-
 .dropdown {
     position: relative;
-    margin-bottom: 20px;
 }
-
 
 .dropdown-btn {
     width: 100%;
@@ -248,7 +253,6 @@ section div a:hover {
     background-color: #ca84d6;
 }
 
-
 .dropdown-content {
     display: block;
     background-color: rgba(255, 255, 255, 0.185);
@@ -267,8 +271,8 @@ section div a:hover {
     opacity: 0;
     transition: opacity 0.3s ease-out, max-height 0.3s ease-out; /* Enables a smooth transition */
     z-index: 1;
+    text-align: center;
 }
-
 
 .dropdown-content::before {
     content: '';
@@ -282,41 +286,38 @@ section div a:hover {
     z-index: -1; /* Position it behind the content */
 }
 
-
-
 #skills-dropdown::before {
     background-image: url('images/skill_set_background.png');
     background-size: 120%;
-    background-position-y: 1050px;
+    background-position-y: 1200px;
     background-position-x: -120px;
     opacity: 75%;
-    filter: blur(2px);
+    filter: blur(12px);
 }
-
 
 #education-dropdown::before {
-    background-image: url('images/education_background.png');
-    opacity: 50%;
-    filter: blur(2px);
+    background-image: url('images/skill_set_background.png');
+    background-size: 120%;
+    background-position-y: 930px;
+    background-position-x: -120px;
+    opacity: 75%;
+    filter: blur(12px);
 }
-
 
 #courses-dropdown::before {
-    background-image: url('images/courses_background.png');
-    opacity: 50%;
-    filter: blur(2px);
+    background-image: url('images/skill_set_background.png');
+    background-size: 120%;
+    background-position-y: 890px;
+    background-position-x: -120px;
+    opacity: 75%;
+    filter: blur(12px);
 }
-
 
 /* When dropdown is active, show content */
 .dropdown.active .dropdown-content {
     max-height: 500px; /* Adjust this based on your content's height */
     opacity: 1; /* Fully visible */
 }
-
-
-
-
 
 .dropdown-content ul {
     list-style-type: none;
@@ -327,7 +328,6 @@ section div a:hover {
     column-gap: 20px;
 }
 
-
 .dropdown-content li {
     padding: 8px 0;
     font-size: 1.1em;
@@ -335,12 +335,30 @@ section div a:hover {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-
 .dropdown-content li:last-child {
     border-bottom: none; /* Removes border from the last list item */
 }
 
-
 .dropdown.show .dropdown-content {
     display: block;
 }
+
+
+
+
+
+/*Project Section*/
+#projects {
+    padding: 50px;
+    color: #fff;
+    background: url("images/description-background.jpeg");
+    background-size: cover;
+    position: relative;
+}
+
+.project-image img {
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(219, 13, 226, 0.5);
+}
+
