@@ -36,16 +36,30 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(element);
     });
 
-    //Drop Down Buttons
+    // Drop Down Buttons
     document.querySelectorAll('.dropdown-btn').forEach(button => {
         button.addEventListener('click', function () {
             const dropdown = this.parentElement;
             dropdown.classList.toggle('active');
         });
     });
+
+    // Underline Animation for Project Title
+    const projectTitle = document.querySelector('#projects h2');
     
+    const titleObserverOptions = {
+        root: null, // Use viewport
+        threshold: 0.1 // Trigger when 10% of the section is visible
+    };
 
+    const titleObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                projectTitle.classList.add('underline-active'); // Add class to start underline animation
+            }
+        });
+    }, titleObserverOptions);
 
-
-
+    // Observe the #projects section for underline animation
+    titleObserver.observe(document.querySelector('#projects'));
 });

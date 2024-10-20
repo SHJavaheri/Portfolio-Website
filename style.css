@@ -1,3 +1,6 @@
+/*---------------------------------------------------------------------------------------------*/
+/* HEADER SECTION */
+/*---------------------------------------------------------------------------------------------*/
 header {
     position: fixed;
     top: 0;
@@ -9,11 +12,6 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-
-
-
-
-/*The tabs at the top of the screen*/
 nav ul {
     list-style: none;
     margin: 0;
@@ -22,11 +20,9 @@ nav ul {
     justify-content: center;
 }
 
-
 nav ul li {
     margin: 0 20px;
 }
-
 
 nav ul li a {
     text-decoration: none;
@@ -37,11 +33,9 @@ nav ul li a {
     position: relative;
 }
 
-
 nav ul li a:hover {
     color: #f0f0f0;
 }
-
 
 nav ul li a::after {
     content: "";
@@ -57,30 +51,14 @@ nav ul li a::after {
     transition: transform 0.3s ease;
 }
 
-
 nav ul li a:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }
 
-
-
-
-
-
-/*The Explore My Work Button*/
-section div a:hover {
-    text-decoration: none;
-    color: red;
-    font-size: 1.1em;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-
-
-
-/*Main Page*/
+/*---------------------------------------------------------------------------------------------*/
+/* COVER PAGE SECTION */
+/*---------------------------------------------------------------------------------------------*/
 .cover-page {
     position: relative;
     opacity: 100%;
@@ -141,29 +119,27 @@ section div a:hover {
     transition: background-color 0.3s ease;
 }
 
-
-.bth:hover {
+.btn:hover {
     background-color: red;
 }
 
-
+/*---------------------------------------------------------------------------------------------*/
+/* FADE-IN ANIMATION SECTION */
+/*---------------------------------------------------------------------------------------------*/
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-
-
-
-
-/*Self Description (About Me) Page*/
+/*---------------------------------------------------------------------------------------------*/
+/* SELF DESCRIPTION SECTION */
+/*---------------------------------------------------------------------------------------------*/
 #description {
     padding: 60px 20px;
     background: linear-gradient(to right, #5372ac, #e5dcbd, #5372ac);
@@ -180,7 +156,7 @@ section div a:hover {
     width: 100%;
     height: 100%;
     background: url('images/description-background.jpeg') no-repeat center center/cover;
-    opacity: 0.3; /* Adjust the opacity of the background image */
+    opacity: 0.3;
     z-index: -1;
 }
 
@@ -189,7 +165,7 @@ section div a:hover {
     flex-direction: row;
     width: 100%;
     max-width: auto;
-    z-index: 2; /* To make sure content appears over the image */
+    z-index: 2;
 }
 
 #description .text-section {
@@ -217,11 +193,9 @@ section div a:hover {
     padding-left: 20px;
 }
 
-
-
-
-
-/*Buttons of the description page*/
+/*---------------------------------------------------------------------------------------------*/
+/* DROPDOWN BUTTONS SECTION */
+/*---------------------------------------------------------------------------------------------*/
 .button-section {
     width: 30%; 
     display: flex;
@@ -265,58 +239,39 @@ section div a:hover {
     width: 610px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     border-radius: 10px;
-    /* Animation Portion */
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease-out, max-height 0.3s ease-out; /* Enables a smooth transition */
+    transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
     z-index: 1;
     text-align: center;
 }
 
-.dropdown-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-    z-index: -1; /* Position it behind the content */
-}
-
-#skills-dropdown::before {
-    background-image: url('images/skill_set_background.png');
-    background-size: 120%;
-    background-position-y: 1200px;
-    background-position-x: -120px;
-    opacity: 75%;
-    filter: blur(12px);
-}
-
-#education-dropdown::before {
-    background-image: url('images/skill_set_background.png');
-    background-size: 120%;
-    background-position-y: 930px;
-    background-position-x: -120px;
-    opacity: 75%;
-    filter: blur(12px);
-}
-
+#skills-dropdown::before,
+#education-dropdown::before,
 #courses-dropdown::before {
     background-image: url('images/skill_set_background.png');
     background-size: 120%;
-    background-position-y: 890px;
     background-position-x: -120px;
     opacity: 75%;
     filter: blur(12px);
 }
 
-/* When dropdown is active, show content */
+#skills-dropdown::before {
+    background-position-y: 1200px;
+}
+
+#education-dropdown::before {
+    background-position-y: 930px;
+}
+
+#courses-dropdown::before {
+    background-position-y: 890px;
+}
+
 .dropdown.active .dropdown-content {
-    max-height: 500px; /* Adjust this based on your content's height */
-    opacity: 1; /* Fully visible */
+    max-height: 500px;
+    opacity: 1;
 }
 
 .dropdown-content ul {
@@ -336,18 +291,12 @@ section div a:hover {
 }
 
 .dropdown-content li:last-child {
-    border-bottom: none; /* Removes border from the last list item */
+    border-bottom: none;
 }
 
-.dropdown.show .dropdown-content {
-    display: block;
-}
-
-
-
-
-
-/*Project Section*/
+/*---------------------------------------------------------------------------------------------*/
+/* PROJECTS SECTION */
+/*---------------------------------------------------------------------------------------------*/
 #projects {
     padding: 80px 0;
     color: #fff;
@@ -368,17 +317,44 @@ section div a:hover {
 
 #projects h2 {
     text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
     margin-bottom: 60px;
+    letter-spacing: 2px;
     position: relative;
     z-index: 1;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
 }
+
+/* Underline starting from 0 width */
+#projects h2::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Starts with 0 width */
+    height: 4px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    transition: width 0.5s ease; /* Smooth animation for the underline */
+    transition-delay: 0.5s;
+}
+
+/* Add class when the section is in view */
+#projects h2.underline-active::after {
+    width: 200px; /* Full width of the underline */
+}
+
+
 
 .project {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 100px;
     position: relative;
@@ -386,6 +362,7 @@ section div a:hover {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
+    flex-direction: row-reverse;
 }
 
 .project-image img {
@@ -396,33 +373,58 @@ section div a:hover {
 }
 
 .project-details {
-    margin-left: 20px;
+    margin-right: 20px;
     max-width: 600px;
     text-align: left;
 }
 
 .project-details h3 {
-    font-size: 24px;
+    font-size: 2em; /* Increase size to make the title stand out */
     color: #fff;
+    font-weight: 1000; /* Bold for emphasis */
+    text-transform: uppercase; /* Capitalize project titles for impact */
+    letter-spacing: 1px; /* Space letters slightly */
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
+/* Styling for Project Descriptions */
 .project-details p {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #fff;
+    font-size: 1.2em;
+    line-height: 1.7; /* Slightly increased for a clean look */
+    color: #e0e0e0; /* Softer color for better readability */
+    margin-bottom: 15px;
+    font-weight: 300; /* Light font for readability */
 }
 
+.project-description p {
+    font-size: 1.2em;
+    line-height: 1.4; /* Slightly increased for a clean look */
+    color: #e0e0e0; /* Softer color for better readability */
+    margin-bottom: 10px;
+    font-weight: 300; /* Light font for readability */
+}
+
+/* Gradient Effect on Project Titles */
+.project-details h3 {
+    background: linear-gradient(to right, #ffafbd, #ffc3a0); /* Blue gradient */
+    -webkit-background-clip: text;
+    color: transparent; /* Use the gradient as the text color */
+    text-shadow: none; /* Remove the default shadow when using gradient */
+}
+
+/* Links Styling */
 .project-links a {
-    font-size: 16px;
+    font-size: 1.2em;
     color: #00bfff;
     text-decoration: none;
-    border-bottom: 1px solid #fff;
-    margin-right: 10px;
-    transition: color 0.3s, border-color 0.3s;
+    border-bottom: 2px solid transparent;
+    margin-right: 20px;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease, transform 0.2s ease; /* Animate on hover */
 }
 
 .project-links a:hover {
-    color: #ff6347; /* Hover color */
-    border-color: #ff6347;
+    color: #ff6347;
+    border-bottom-color: #ff6347;
+    transform: scale(1.05); /* Slightly enlarge links on hover */
 }
-
