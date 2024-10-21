@@ -36,15 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(element);
     });
 
-    // Drop Down Buttons
-    document.querySelectorAll('.dropdown-btn').forEach(button => {
-        button.addEventListener('click', function () {
-            const dropdown = this.parentElement;
-            dropdown.classList.toggle('active');
-        });
-    });
-
-    // Underline Animation for Project Title
+    // Underline Animation for "My Projects" Title
     const projectTitle = document.querySelector('#projects h2');
     
     const titleObserverOptions = {
@@ -56,10 +48,43 @@ document.addEventListener('DOMContentLoaded', function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 projectTitle.classList.add('underline-active'); // Add class to start underline animation
+            } else {
+                projectTitle.classList.remove('underline-active'); // Remove class to reset animation
             }
         });
     }, titleObserverOptions);
 
     // Observe the #projects section for underline animation
     titleObserver.observe(document.querySelector('#projects'));
+
+    // Underline Animation for "Self Description" Title
+    const descriptionTitle = document.querySelector('#description h2');
+
+    const descriptionObserverOptions = {
+        root: null, // Use viewport
+        threshold: 0.1 // Trigger when 10% of the section is visible
+    };
+
+    const descriptionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                descriptionTitle.classList.add('underline-active'); // Add class to start underline animation
+            } else {
+                descriptionTitle.classList.remove('underline-active'); // Remove class to reset animation
+            }
+        });
+    }, descriptionObserverOptions);
+
+    // Observe the #description section for underline animation
+    descriptionObserver.observe(document.querySelector('#description'));
+
+    // Dropdown Button Functionality
+    const dropdownButtons = document.querySelectorAll('.dropdown-btn');
+
+    dropdownButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const dropdownContent = this.nextElementSibling; // Select the next sibling element (the dropdown content)
+            dropdownContent.classList.toggle('active'); // Toggle active class for showing/hiding dropdown
+        });
+    });
 });

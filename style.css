@@ -140,14 +140,16 @@ nav ul li a:hover::after {
 /*---------------------------------------------------------------------------------------------*/
 /* SELF DESCRIPTION SECTION */
 /*---------------------------------------------------------------------------------------------*/
+/* Self Description Section with Parallax Effect */
 #description {
-    padding: 60px 20px;
-    background: linear-gradient(to right, #5372ac, #e5dcbd, #5372ac);
-    color: #000000;
+    padding: 150px 0;
+    background: url('images/description-background.jpeg') center/cover no-repeat fixed;
     position: relative;
+    color: white;
     overflow: hidden;
 }
 
+/* Parallax Layer - Giving Depth to Background */
 #description::before {
     content: '';
     position: absolute;
@@ -155,166 +157,183 @@ nav ul li a:hover::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/description-background.jpeg') no-repeat center center/cover;
-    opacity: 0.3;
-    z-index: -1;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: 1;
 }
 
+/* Central Content Section */
 #description .content {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    max-width: auto;
-    z-index: 2;
-}
-
-#description .text-section {
-    width: 50%;
-    padding: 20px;
-    color: white;
-}
-
-#description h2 {
-    font-size: 3em;
+    position: relative;
+    z-index: 2; /* Ensure content is above parallax */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.1); /* Transparent Glass Effect */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Deep shadow for pop */
+    backdrop-filter: blur(20px); /* Frosted glass effect */
     text-align: center;
+    animation: fadeInUp 1s ease-out; /* Animation to bring in content smoothly */
+}
+
+/* Title Styling */
+#description h2 {
+    font-size: 4em;
+    font-family: 'Playfair Display', serif;
+    color: #fff;
     margin-bottom: 20px;
-}
-
-#description p {
-    font-size: 1.2em;
-    line-height: 1.6;
-}
-
-#description .button-section {
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-left: 20px;
-}
-
-/*---------------------------------------------------------------------------------------------*/
-/* DROPDOWN BUTTONS SECTION */
-/*---------------------------------------------------------------------------------------------*/
-.button-section {
-    width: 30%; 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-end;
-    margin-left: auto;
-}
-
-.dropdown {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    color: transparent;
     position: relative;
 }
 
-.dropdown-btn {
-    width: 100%;
-    padding: 15px 20px;
-    background-color: #4e54c8;
+/* Stunning Underline Animation for the Title */
+#description h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    transition: width 0.8s ease;
+    transform: translateX(-50%);
+}
+
+#description h2.underline-active::after {
+    width: 200px; /* Width of the underline */
+}
+
+/* Elegant Paragraph Styling */
+#description p {
+    font-size: 1.6em;
+    font-family: 'Lora', serif;
+    color: #e0e0e0;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: fadeInUp 1.5s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+/* WOW! Button Section in a Grid Layout */
+#description .button-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    margin-top: 40px;
+    padding: 0 50px;
+}
+
+/* High-End Buttons */
+.button-section .dropdown-btn {
+    padding: 20px 40px;
+    background: linear-gradient(45deg, #0073e6, #00b3ff);
     color: white;
-    border: none;
-    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.2em;
-    border-radius: 100px;
-    text-align: right;
-    transition: background-color 0.3s ease;
-    margin-bottom: 180px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
-.dropdown-btn:hover {
-    background-color: #ca84d6;
+/* Button Hover Effect - WOW Factor */
+.button-section .dropdown-btn:hover {
+    transform: translateY(-8px); /* Lifts up the button */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Hover shadow */
+    background: linear-gradient(45deg, #005bb5, #0073e6); /* Subtle gradient change */
 }
 
+/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: block;
-    background-color: rgba(255, 255, 255, 0.185);
-    margin-top: -180px;
-    padding-left: 10px;
-    padding-right: 10px;
+    display: none; /* Initially hidden */
     position: absolute;
     top: 100%;
-    right: 0;
-    width: 610px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    width: 350px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease-out, max-height 0.3s ease-out;
-    z-index: 1;
-    text-align: center;
+    z-index: 3;
 }
 
-#skills-dropdown::before,
-#education-dropdown::before,
-#courses-dropdown::before {
-    background-image: url('images/skill_set_background.png');
-    background-size: 120%;
-    background-position-x: -120px;
-    opacity: 75%;
-    filter: blur(12px);
+/* Dropdown Active State */
+.dropdown-content.active {
+    display: block; /* Show when active */
 }
 
-#skills-dropdown::before {
-    background-position-y: 1200px;
-}
-
-#education-dropdown::before {
-    background-position-y: 930px;
-}
-
-#courses-dropdown::before {
-    background-position-y: 890px;
-}
-
-.dropdown.active .dropdown-content {
-    max-height: 500px;
-    opacity: 1;
-}
-
+/* Dropdown List Styling */
 .dropdown-content ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 20px;
 }
 
 .dropdown-content li {
-    padding: 8px 0;
+    padding: 10px 0;
     font-size: 1.1em;
     color: #333;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.dropdown-content li:last-child {
-    border-bottom: none;
+.dropdown-content li:hover {
+    color: #0073e6;
 }
+
+/* Animation for Fade-in Up */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #description {
+        padding: 100px 20px;
+    }
+
+    #description .content {
+        padding: 30px;
+    }
+
+    .button-section .dropdown-btn {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+}
+
+
 
 /*---------------------------------------------------------------------------------------------*/
 /* PROJECTS SECTION */
 /*---------------------------------------------------------------------------------------------*/
+/* #projects section */
 #projects {
     padding: 80px 0;
     color: #fff;
-    background: url("images/description-background.jpeg") no-repeat center center;
-    background-size: cover;
     position: relative;
+    background: linear-gradient(to right, #1e1e1e, #2a2a2a); /* Dark gradient background */
 }
 
-#projects::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
+/* "My Projects" Title with Underline Animation */
 #projects h2 {
     text-align: center;
     font-size: 48px;
@@ -322,11 +341,11 @@ nav ul li a:hover::after {
     margin-bottom: 60px;
     letter-spacing: 2px;
     position: relative;
-    z-index: 1;
+    z-index: 2; /* Higher than project backgrounds */
     background: linear-gradient(to right, #ff7e5f, #feb47b);
     -webkit-background-clip: text;
     color: transparent;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 3px 3px 8px rgba(255, 0, 0, 0.2);
     text-transform: uppercase;
 }
 
@@ -350,8 +369,7 @@ nav ul li a:hover::after {
     width: 200px; /* Full width of the underline */
 }
 
-
-
+/* Common project styling */
 .project {
     display: flex;
     justify-content: space-between;
@@ -363,7 +381,50 @@ nav ul li a:hover::after {
     margin-left: auto;
     margin-right: auto;
     flex-direction: row-reverse;
+    padding: 40px;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    overflow: hidden; /* Ensure content stays within the bounds */
 }
+
+/* Apply a blurred background using ::before pseudo-element */
+.project::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px); /* Apply the blur effect */
+    z-index: -1; /* Place it behind the content */
+    opacity: 0.8; /* Optional: Adjust opacity to make the blur less intense */
+    border-radius: 10px; /* Match the border-radius of the project container */
+}
+
+/* Blurred background images for each project */
+.project:nth-child(2)::before {
+    background-image: url('images/YapGPT.png');
+}
+
+.project:nth-child(3)::before {
+    background-image: url('images/Sortify.png');
+}
+
+.project:nth-child(4)::before {
+    background-image: url('images/SpotifyMusicPlayer.png');
+}
+
+.project:nth-child(5)::before {
+    background-image: url('images/Website.png');
+}
+
+
 
 .project-image img {
     height: 250px;
@@ -372,6 +433,7 @@ nav ul li a:hover::after {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* Rest of the project styles remain the same */
 .project-details {
     margin-right: 20px;
     max-width: 600px;
@@ -379,52 +441,42 @@ nav ul li a:hover::after {
 }
 
 .project-details h3 {
-    font-size: 2em; /* Increase size to make the title stand out */
+    font-size: 2em;
     color: #fff;
-    font-weight: 1000; /* Bold for emphasis */
-    text-transform: uppercase; /* Capitalize project titles for impact */
-    letter-spacing: 1px; /* Space letters slightly */
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Styling for Project Descriptions */
 .project-details p {
     font-size: 1.2em;
-    line-height: 1.7; /* Slightly increased for a clean look */
-    color: #e0e0e0; /* Softer color for better readability */
+    line-height: 1.7;
+    color: #e0e0e0;
     margin-bottom: 15px;
-    font-weight: 300; /* Light font for readability */
+    font-weight: 300;
 }
 
 .project-description p {
     font-size: 1.2em;
-    line-height: 1.4; /* Slightly increased for a clean look */
-    color: #e0e0e0; /* Softer color for better readability */
+    line-height: 1.4;
+    color: #e0e0e0;
     margin-bottom: 10px;
-    font-weight: 300; /* Light font for readability */
+    font-weight: 300;
 }
 
-/* Gradient Effect on Project Titles */
-.project-details h3 {
-    background: linear-gradient(to right, #ffafbd, #ffc3a0); /* Blue gradient */
-    -webkit-background-clip: text;
-    color: transparent; /* Use the gradient as the text color */
-    text-shadow: none; /* Remove the default shadow when using gradient */
-}
-
-/* Links Styling */
 .project-links a {
     font-size: 1.2em;
     color: #00bfff;
     text-decoration: none;
     border-bottom: 2px solid transparent;
     margin-right: 20px;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease, transform 0.2s ease; /* Animate on hover */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease, transform 0.2s ease;
 }
 
 .project-links a:hover {
     color: #ff6347;
     border-bottom-color: #ff6347;
-    transform: scale(1.05); /* Slightly enlarge links on hover */
+    transform: scale(1.05);
 }
